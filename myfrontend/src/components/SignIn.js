@@ -11,7 +11,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import EditIcon from '@material-ui/icons/Edit';
 import { AvatarWrapper, ChatImgOptionWrapper } from './styledComponents';
-
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -98,7 +98,7 @@ export default function SignIn() {
         <Typography component="h1" variant="h5">
           Sign in 
         </Typography>
-        <form className={classes.form} noValidate id='chat-form'>
+        <form className={classes.form} noValidate id='chat-form' method='POST' action='/chatRooms'>
           <TextField
             variant="outlined"
             margin="normal"
@@ -116,15 +116,19 @@ export default function SignIn() {
             label="Remember me"
           />
           
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-          >
-            Join a Chat Room
-          </Button>
+          {/* <Link to='/chatRooms'> */}
+            <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+                className={classes.submit}
+              >
+                Join a Chat Room
+              </Button> 
+
+          {/* </Link> */}
+                     
         </form>
       </div>
     </Container>

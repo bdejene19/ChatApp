@@ -2,9 +2,9 @@ const Message = (user, message, time) => {
     return {
         user,
         message,
-        time = new Date().getTime(),
-        opened = false
+        time: new Date().getTime(),
+        opened: false
     }
 }
 
-module.exports = [Message];
+module.exports = Message;

@@ -1,8 +1,11 @@
 const ChatRoom = (numberOfPeople, namesOfUsers, messages) => {
     return {
-        numberOfPeople = 0,
-        namesOfUsers = [],
-        messages = [],
+        numberOfPeople: {
+            type: Int32Array,
+            default: 0
+        },
+        namesOfUsers: [],
+        messages: [],
     }
 }
 
