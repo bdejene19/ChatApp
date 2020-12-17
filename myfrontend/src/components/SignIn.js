@@ -37,17 +37,31 @@ const changeUserIcon = () => {
   document.getElementById('usericon-option').style.display = 'grid';
 }
 
+
 export default function SignIn() {
   const classes = useStyles();
   const [chatUserIcon, setUserIcon] = useState(<LockOutlinedIcon/>);
+  const [username, setUsername] = useState("");
 
   const selectImg = (imageSelected) => {
     const chosenImg = document.getElementById(imageSelected);
     document.getElementById("usericon-option").style.display = "none";
     setUserIcon(<img src={chosenImg.src} alt={chosenImg.alt}></img>);
-
-
   }
+
+  // figure out how to do a post fetch request
+  function submitForm() {
+     fetch('/chatRooms', {
+      method: "post",
+      
+      body: {
+        // remember to put the name of you fields in quotation marks => or else does not recognize
+        "chatUsername": username,
+        "avatarImg": chatUserIcon,
+      }
+     }).then(res => res.json()).then(data => console.log(data));    
+  }
+
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -98,7 +112,7 @@ export default function SignIn() {
         <Typography component="h1" variant="h5">
           Sign in 
         </Typography>
-        <form className={classes.form} noValidate id='chat-form' method='POST' action='/chatRooms'>
+        <form className={classes.form} noValidate id='chat-form'>
           <TextField
             variant="outlined"
             margin="normal"
@@ -106,9 +120,11 @@ export default function SignIn() {
             fullWidth
             id="chatUsername"
             label="Chat Username"
+            value={username}
             name="chatUsername"
             autoComplete="chatUsername"
             autoFocus
+            onChange={e => setUsername(e.target.value)}
           />
 
           <FormControlLabel
@@ -123,6 +139,10 @@ export default function SignIn() {
                 variant="contained"
                 color="primary"
                 className={classes.submit}
+                // submitForm function should submit input field STATE value and send to back end using fetch request
+                // after awaiting response, will then send to /chatRooms page
+
+                onSubmit={() => submitForm()}
               >
                 Join a Chat Room
               </Button> 

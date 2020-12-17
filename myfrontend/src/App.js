@@ -3,6 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
 // import ChatRooms from './components/ChatRooms'
 import AvailableChatRooms from './pages/AvailableChatRooms';
+import ChatRooms from './components/ChatRooms';
 
 
 // these are all your typical imports from react router dom
@@ -20,6 +21,11 @@ function App() {
           <section>
             <Route component={AvailableChatRooms} path="/chatRooms"></Route>
           </section>
+
+          <section>
+            <Route component={ChatRooms} path='/ChatRooms'></Route>
+          </section>
+          {/* <ChatRooms></ChatRooms> */}
           {/* <Route path='/ChatRoom' component={ChatRooms}></Route> */}
         </Router>    
     </div>

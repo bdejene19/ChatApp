@@ -1,7 +1,7 @@
-const createUser = (username, time) => {
+const createUser = (chatUsername, avatarImg) => {
     return {
-        username,
-        time
+        chatUsername,
+        avatarImg
     }
 }
 
