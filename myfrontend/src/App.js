@@ -1,9 +1,8 @@
-import SignIn from './components/SignIn';
+import SignIn from './pages/SignIn';
 import React from 'react';
 import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
 // import ChatRooms from './components/ChatRooms'
-import AvailableChatRooms from './pages/AvailableChatRooms';
-import ChatRooms from './components/ChatRooms';
+import ChatRooms from './pages/AvailableRooms';
 
 
 // these are all your typical imports from react router dom
@@ -13,21 +12,17 @@ function App() {
  // fetch('chatRooms').then(data => data.text()).then(res => document.getElementById('title').innerHTML = res);;
   return (
     <div className="App">
-        <Router> 
-          <section>
-            <Route path='/' exact component={SignIn}></Route>
-          </section>
+      <Router> 
+        <section>
+          <Route path='/' exact component={SignIn}></Route>
+          <Route component={ChatRooms} path='/chatRooms'></Route>
+        </section>
 
-          <section>
-            <Route component={AvailableChatRooms} path="/chatRooms"></Route>
-          </section>
-
-          <section>
-            <Route component={ChatRooms} path='/ChatRooms'></Route>
-          </section>
-          {/* <ChatRooms></ChatRooms> */}
-          {/* <Route path='/ChatRoom' component={ChatRooms}></Route> */}
-        </Router>    
+        <section>
+        </section>
+        {/* <ChatRooms></ChatRooms> */}
+        {/* <Route path='/ChatRoom' component={ChatRooms}></Route> */}
+      </Router>    
     </div>
   );
 }
