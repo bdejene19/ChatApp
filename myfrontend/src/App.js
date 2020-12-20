@@ -1,8 +1,9 @@
 import SignIn from './pages/SignIn';
 import React from 'react';
-import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import { BrowserRouter as Router, Route,} from 'react-router-dom'
 // import ChatRooms from './components/ChatRooms'
 import ChatRooms from './pages/AvailableRooms';
+import CreateChatRoom from './pages/CreateChatRoom';
 
 
 // these are all your typical imports from react router dom
@@ -15,10 +16,14 @@ function App() {
       <Router> 
         <section>
           <Route path='/' exact component={SignIn}></Route>
+        </section>
+
+        <section>
           <Route component={ChatRooms} path='/chatRooms'></Route>
         </section>
 
         <section>
+          <Route component={CreateChatRoom} path = '/createChatRoom'></Route>
         </section>
         {/* <ChatRooms></ChatRooms> */}
         {/* <Route path='/ChatRoom' component={ChatRooms}></Route> */}

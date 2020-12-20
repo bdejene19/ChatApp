@@ -37,21 +37,21 @@ export const ChatImgOptionWrapper = styled.div`
 
 export const AvailableChatRooms = styled.div`
     width: 100vw;
-    justify-content: center;
-
     padding: 0;
     margin: 0;
-    .chatWrapper {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    width: 80%;
-    justify-content: space-around;
-    border: solid black 3px;
+    justify-items: center;
 
-
+    .chatWrapper {
+        grid-column: 1/4;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        width: 80%;
+        justify-content: space-around;
+        border: solid black 3px;
+        & div {}
     }
-
 
     nav {
         grid-row: 1;
@@ -90,7 +90,7 @@ export const AvailableChatRooms = styled.div`
         grid-row: 2;
         grid-column: 1;
         height: max-content;
-        justify-items: stretch;
+        align-items: stretch;
         display: flex;
         flex-direction: column;
         border: solid black 3px;
@@ -105,10 +105,6 @@ export const AvailableChatRooms = styled.div`
         grid-column: 2;
         justify-content: center;
         text-align: center;
-    }
-
-    #availableRooms {
-
     }
 `;
 

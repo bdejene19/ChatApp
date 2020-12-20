@@ -11,7 +11,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import EditIcon from '@material-ui/icons/Edit';
 import { AvatarWrapper, ChatImgOptionWrapper } from '../components/styledComponents';
-import { Redirect, Router, Route, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import AvailableChatRooms from './AvailableRooms';
 
 const useStyles = makeStyles((theme) => ({

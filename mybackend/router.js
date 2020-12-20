@@ -32,6 +32,16 @@ router.post('/createChatRoom', (req, res) => {
     
 // })
 
+router.get('/testChatRooms', (req, res) => {
+    var chatRoomCreated = new ChatRoom({
+            roomName: 'roomName',
+            numberofPeople: 1,
+        });
+    
+    console.log('room created is: ', chatRoomCreated)
+    
+})
+
 router.post('/chatRooms', (req, res) => {
     console.log('entered post request1')
     console.log('my request body: ', req.body);

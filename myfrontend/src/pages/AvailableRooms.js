@@ -2,9 +2,23 @@ import React, { useState } from 'react'
 import {AvailableChatRooms} from '../components/styledComponents';
 import {Typography, Button} from '@material-ui/core';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
+import styled from 'styled-components';
+import RoomsJoined from '../components/RoomsJoined';
+
+
+const UserGroupChatsWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+`;
 
 export default function ChatRooms(props) {
     const [activity, setActivity] = useState(<FiberManualRecordIcon id='activity-status' style={{color: "green"}}></FiberManualRecordIcon>);
+
+    const [activeGroups, setGroupActivity] = useState([])
+    activeGroups.push(<RoomsJoined mostRecentMessageUser='bemnet' userMessage='hey there'></RoomsJoined>);
+                // setGroupActivity([<RoomsJoined mostRecentMessageUser='bemnet' userMessage='hey there'></RoomsJoined>]);
 
     const changeStatus = () => {
         var selectorOptions = document.getElementById('activity-states');
@@ -20,6 +34,12 @@ export default function ChatRooms(props) {
             setActivity(<FiberManualRecordIcon id='activity-status' style={{color: 'orange'}}></FiberManualRecordIcon>)
         }
     }
+
+    // let inProgressChats = activeGroups.forEach(group => {
+    //     <RoomsJoined mostRecentMessageUser='bemnet' userMessage='hey there'></RoomsJoined>
+    // })
+
+
 
     return (
         <AvailableChatRooms>
@@ -39,8 +59,20 @@ export default function ChatRooms(props) {
                 </nav>
                     
                 <div className='welcome-user'>
-                    <h3>Welcome {props.chatUsername}</h3>
-                    <Button variant='contained'>Make a New Chat Room!</Button>
+                    <Autocomplete>
+                        hello there
+                    </Autocomplete>
+                    <UserGroupChatsWrapper>
+                        <div className='group-activity'>
+                        {activeGroups.length === 0 ? 
+                            <Typography variant='h4'>Looks like you have no active Chats!</Typography>
+                         : <div> <h1>your group chats are: </h1><br></br>{activeGroups}</div>}
+                        </div>
+                        
+
+                    </UserGroupChatsWrapper>
+                    {/* <Button variant='contained'>Make a New Chat Room!</Button> */}
+
                 </div>
                 
                 <div className='roomsToJoin'>
@@ -53,7 +85,8 @@ export default function ChatRooms(props) {
                             <option value={props.chatRoomName}>{props.chatRoomName}</option>
                         </select> 
                         <br></br> */}
-                        <Button variant="contained">Join Room</Button>
+                        
+                        <Button variant="contained" href='../createChatRoom'>Create a Chat Room</Button>
                     </form>
 
                 </div>

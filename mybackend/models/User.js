@@ -19,7 +19,7 @@ const User = mongo.Schema({
 
     activityState: {
         type: String,
-        default: true,
+        default: 'active',
     }
 })
 module.exports = mongo.model('User', User);

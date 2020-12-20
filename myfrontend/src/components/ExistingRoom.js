@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Typography from '@material-ui/core/Typography';
 
 const SingleRoomWrapper = styled.div`
     width: 100%;
@@ -20,7 +21,7 @@ export default function ExistingRoom(props) {
             </div>
 
             <div>
-                <Typography variant='body1'>{props.numberOfMemberInRoom}</Typography>
+                <Typography variant='body1'>{props.numberOfMembersInRoom}</Typography>
             </div>
         </SingleRoomWrapper>
     )
