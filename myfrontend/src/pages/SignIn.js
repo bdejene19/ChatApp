@@ -12,7 +12,7 @@ import Container from '@material-ui/core/Container';
 import EditIcon from '@material-ui/icons/Edit';
 import { AvatarWrapper, ChatImgOptionWrapper } from '../components/styledComponents';
 import { useHistory } from 'react-router-dom';
-import AvailableChatRooms from './AvailableRooms';
+// import AvailableChatRooms from './AvailableRooms';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -106,8 +106,7 @@ export default function SignIn() {
             </div>
 
             <div>
-            <img src="https://www.svgrepo.com/show/16084/doctor.svg" alt='user icon' id='img9' onClick={() => selectImg('img9')}></img>
-
+              <img src="https://www.svgrepo.com/show/16084/doctor.svg" alt='user icon' id='img9' onClick={() => selectImg('img9')}></img>
             </div>
         </ChatImgOptionWrapper>
         <AvatarWrapper>

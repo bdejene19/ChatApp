@@ -1,10 +1,3 @@
-// const createUser = (chatUsername, avatarImg) => {
-//     return {
-//         chatUsername,
-//         avatarImg
-//     }
-// }
-
 const mongo = require('mongoose');
 
 const User = mongo.Schema({
@@ -20,6 +13,8 @@ const User = mongo.Schema({
     activityState: {
         type: String,
         default: 'active',
-    }
+    }, 
+
+    roomsJoined: [],
 })
 module.exports = mongo.model('User', User);

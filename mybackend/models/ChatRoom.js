@@ -1,26 +1,21 @@
-// const ChatRoom = (numberOfPeople, namesOfUsers, messages) => {
-//     return {
-//         numberOfPeople: {
-//             type: Int32Array,
-//             default: 0
-//         },
-//         namesOfUsers: [],
-//         messages: [],
-//     }
-// }
+
 
 const mongo = require('mongoose');
+const User = require('./User')
+const Message = require('./Message');
 
 const ChatRoom = mongo.Schema({
     roomName: {
         type: String,
         require
     },
-    numberOfPeople: {
-        default: 0
+    roomPassword: {
+        type: String,
     },
-    usersConnected: [],
-    messages: []
+    
+    usersConnected: [User.schema],
+    messages: [Message.schema],
+    
 })
 
 module.exports = mongo.model('ChatRoom', ChatRoom);

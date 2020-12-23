@@ -59,9 +59,9 @@ export default function ChatRooms(props) {
                 </nav>
                     
                 <div className='welcome-user'>
-                    <Autocomplete>
+                    {/* <Autocomplete>
                         hello there
-                    </Autocomplete>
+                    </Autocomplete> */}
                     <UserGroupChatsWrapper>
                         <div className='group-activity'>
                         {activeGroups.length === 0 ? 

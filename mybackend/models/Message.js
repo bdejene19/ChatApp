@@ -1,12 +1,3 @@
-// const Message = (user, message, time) => {
-//     return {
-//         user,
-//         message,
-//         time: new Date().getTime(),
-//         opened: false
-//     }
-// }
-
 const mongo = require('mongoose');
 
 const Message = mongo.Schema({
@@ -21,7 +12,7 @@ const Message = mongo.Schema({
 
     time: {
         type: Object, 
-        required
+        require
     },
     opened: {
         type: Boolean,
