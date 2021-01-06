@@ -10,16 +10,16 @@ const UserGroupChatsWrapper = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-
 `;
 
-export default function ChatRooms(props) {
+
+export default function ChatRooms() {
     const [activity, setActivity] = useState(<FiberManualRecordIcon id='activity-status' style={{color: "green"}}></FiberManualRecordIcon>);
 
     const [activeGroups, setGroupActivity] = useState([])
-    activeGroups.push(<RoomsJoined mostRecentMessageUser='bemnet' userMessage='hey there'></RoomsJoined>);
-                // setGroupActivity([<RoomsJoined mostRecentMessageUser='bemnet' userMessage='hey there'></RoomsJoined>]);
 
+
+    // update activity state on both back and front tned
     const changeStatus = () => {
         var selectorOptions = document.getElementById('activity-states');
         var selectedValue = selectorOptions.options[selectorOptions.selectedIndex].value;
@@ -28,18 +28,33 @@ export default function ChatRooms(props) {
         }
         if (selectedValue === 'offline') {
             setActivity(<FiberManualRecordIcon id='activity-status' style={{color: "lightgrey"}}></FiberManualRecordIcon>)
-        }if (selectedValue === 'away') {
+        }
+        
+        if (selectedValue === 'away') {
             setActivity(<FiberManualRecordIcon id='activity-status' style={{color: 'red'}}></FiberManualRecordIcon>)
-        }if (selectedValue === 'busy') {
+        }
+        
+        if (selectedValue === 'busy') {
             setActivity(<FiberManualRecordIcon id='activity-status' style={{color: 'orange'}}></FiberManualRecordIcon>)
         }
+
+        fetch('/changeStatus', {
+            headers: {
+                "accept": "application/json",
+                "content-type": "application/json"
+            },
+            body: JSON.stringify({activityStatus: selectedValue}),
+            method: "PUT"
+        }).then(data => data.json()).then(res => res )
     }
 
-    // let inProgressChats = activeGroups.forEach(group => {
-    //     <RoomsJoined mostRecentMessageUser='bemnet' userMessage='hey there'></RoomsJoined>
-    // })
+
+    // figure out how to communicate joined group chats from backend to front end
+    // also need to figure out a way to update frontend when this changes (i.e. when you join a groupchat or create a group chat)
+    fetch('/myActiveChats').then(data => data.json()).then(res => res);
 
 
+    
 
     return (
         <AvailableChatRooms>
@@ -59,9 +74,6 @@ export default function ChatRooms(props) {
                 </nav>
                     
                 <div className='welcome-user'>
-                    {/* <Autocomplete>
-                        hello there
-                    </Autocomplete> */}
                     <UserGroupChatsWrapper>
                         <div className='group-activity'>
                         {activeGroups.length === 0 ? 
@@ -90,7 +102,9 @@ export default function ChatRooms(props) {
                     </form>
 
                 </div>
-
+                <div id='testRun'>
+                    Test Run
+                </div>
             </div>
             
             

@@ -1,6 +1,6 @@
 const mongo = require('mongoose');
 
-const User = mongo.Schema({
+const UserSchema = mongo.Schema({
     chatUsername: {
         type: String,
         require
@@ -17,4 +17,4 @@ const User = mongo.Schema({
 
     roomsJoined: [],
 })
-module.exports = mongo.model('User', User);
+module.exports = mongo.model('User', UserSchema);

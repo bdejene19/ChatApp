@@ -121,7 +121,6 @@ export default function CreateChatRoom() {
                     />  
                 </div> 
                      
-
                 <FormControlLabel
                     control={<Checkbox value="Password" color="primary" id='pswd-checkbox' onClick={() => requirePassword()}/>}
                     label="Require room password"
